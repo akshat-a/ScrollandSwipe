@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,57 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="swipe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Elw-Lk-MXQ" userLabel="label">
+                                <rect key="frame" x="166" y="127" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAR-t8-kfn">
+                                <rect key="frame" x="66" y="46.5" width="243" height="594"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="594" id="BYx-NP-jxQ"/>
+                                    <constraint firstAttribute="width" constant="243" id="Dqx-3m-WAh"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Elw-Lk-MXQ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="DdP-Fm-lNb"/>
+                            <constraint firstItem="BAR-t8-kfn" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="TGI-Hh-LzO"/>
+                            <constraint firstItem="Elw-Lk-MXQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="107" id="fXa-fR-qqV"/>
+                            <constraint firstItem="BAR-t8-kfn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="jDM-L9-oUN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="vGC-Kr-YBa" appends="YES" id="i83-uc-mBe"/>
+                            <outletCollection property="gestureRecognizers" destination="GF7-hb-Y5g" appends="YES" id="sXl-EA-HdG"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="lable" destination="Elw-Lk-MXQ" id="MYc-HU-BWz"/>
+                        <outlet property="scrollView" destination="BAR-t8-kfn" id="A9C-rG-RyX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="vGC-Kr-YBa">
+                    <connections>
+                        <action selector="handleSwipe:" destination="BYZ-38-t0r" id="AeF-hd-O7U"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="GF7-hb-Y5g">
+                    <connections>
+                        <action selector="handleSwipe:" destination="BYZ-38-t0r" id="R2O-qb-uyb"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>
